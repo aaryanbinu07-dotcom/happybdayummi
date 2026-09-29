@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Ummi | A Floral Birthday Tribute</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Falling Petals Canvas -->
+  <canvas id="petalCanvas"></canvas>
+
+  <!-- Initial Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loader-content">
+      <div class="floral-spinner">
+        <i data-lucide="flower-2"></i>
+      </div>
+      <h2>Creating Something Special...</h2>
+      <p>Gathering warm memories & blooming flowers</p>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="logo">
+      <i data-lucide="flower" class="logo-icon"></i>
+      <span>For Ummi</span>
+    </div>
+    <nav class="nav">
+      <a href="#hero">Home</a>
+      <a href="#gallery">Memories</a>
+      <a href="#message">Birthday Note</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="badge">
+        <i data-lucide="heart" class="heart-icon"></i> Dedicated to Our Beloved Ummi
+      </div>
+      <h1>Happiest Birthday, Ummi!</h1>
+      <p class="subtitle">A special space blooming with love, warmth, and precious memories.</p>
+      
+      <a href="#gallery" class="btn btn-primary">
+        <span>Explore Memories</span>
+        <i data-lucide="arrow-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Memory Gallery Section -->
+  <section id="gallery" class="gallery-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Cherished Moments</h2>
+        <div class="flower-divider">
+          <span></span>
+          <i data-lucide="sparkles"></i>
+          <span></span>
+        </div>
+        <p>Hover and click any photo to view in full size</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card" onclick="openLightbox(0)">
+          <div class="image-wrapper">
+            <img src="ummi (1).jpeg" alt="Sweet memory with Ummi" />
+            <div class="card-overlay">
+              <i data-lucide="zoom-in" class="zoom-icon"></i>
+              <span>Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(1)">
+          <div class="image-wrapper">
+            <img src="ummi (4).jpeg" alt="Ummi with bougainvillea flowers" />
+            <div class="card-overlay">
+              <i data-lucide="zoom-in" class="zoom-icon"></i>
+              <span>Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(2)">
+          <div class="image-wrapper">
+            <img src="ummi (2).jpeg" alt="Ummi standing with daughter" />
+            <div class="card-overlay">
+              <i data-lucide="zoom-in" class="zoom-icon"></i>
+              <span>Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(3)">
+          <div class="image-wrapper">
+            <img src="ummi (3).jpeg" alt="Ummi on sofa beside sunset view" />
+            <div class="card-overlay">
+              <i data-lucide="zoom-in" class="zoom-icon"></i>
+              <span>Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(4)">
+          <div class="image-wrapper">
+            <img src="ummi (5).jpeg" alt="Family portrait photo with Ummi" />
+            <div class="card-overlay">
+              <i data-lucide="zoom-in" class="zoom-icon"></i>
+              <span>Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(5)">
+          <div class="image-wrapper">
+            <img src="ummi (6).jpeg" alt="Ummi holding baby at the beach" />
+            <div class="card-overlay">
+              <i data-lucide="zoom-in" class="zoom-icon"></i>
+              <span>Click to Enlarge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Animated Envelope Section -->
+  <section id="message" class="message-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>A Sealed Note For Ummi</h2>
+        <div class="flower-divider">
+          <span></span>
+          <i data-lucide="mail-open"></i>
+          <span></span>
+        </div>
+        <p>Click the heart seal to open your birthday letter</p>
+      </div>
+
+      <div class="envelope-wrapper">
+        <div class="envelope" id="envelope">
+          <!-- Envelope Flap -->
+          <div class="envelope-flap"></div>
+          
+          <!-- Wax Heart Seal Button -->
+          <div class="heart-seal" id="heartSeal" onclick="toggleEnvelope()">
+            <i data-lucide="heart"></i>
+          </div>
+
+          <!-- Inside Letter / Note -->
+          <div class="letter" id="letter">
+            <div class="letter-pink-heart">
+              <i data-lucide="heart"></i>
+            </div>
+            <div class="message-header">
+              <h2>Happiest birthday to the best mom everrr!!</h2>
+            </div>
+            <div class="placeholder-text">
+              Thank you Ummi for always being by my side, supporting me no matter what, and helping me get through all the stupid challenges I have to face when ur not here with me. Even when I have to deal with things on my own, just knowing that I can call u makes everything feel a little easier. I miss you sooo much, Ummi.<br><br>
+
+              Aiyo ippo old aayalleee😂 But saramilla, you’re still my young, pretty and youthful Ummi hehe! 🤭❤️<br><br>
+
+              I love you sooo sooo much, Ummaaaa!!❤ I wish I could be there with you today and give you the biggest hug. Happiest birthday once again to my favourite person and the best mom everrr!<br><br>
+
+              Love youuu always, Ummaaaa
+            </div>
+          </div>
+
+          <!-- Envelope Pocket Front -->
+          <div class="envelope-pocket"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-content">
+        <i data-lucide="flower-2" class="footer-icon"></i>
+        <p>Designed with love for the best Ummi ever</p>
+      </div>
+      <!-- Subtle Secret Button in Bottom-Right -->
+      <button class="secret-trigger" onclick="openSecretModal()" title="A little secret note...">
+        <i data-lucide="heart"></i>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Gallery Images -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightboxForce()"><i data-lucide="x"></i></button>
+    <button class="lightbox-nav prev" onclick="changeLightboxImg(-1, event)"><i data-lucide="chevron-left"></i></button>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <img id="lightboxImg" src="" alt="Enlarged Memory" />
+    </div>
+    <button class="lightbox-nav next" onclick="changeLightboxImg(1, event)"><i data-lucide="chevron-right"></i></button>
+  </div>
+
+  <!-- Secret Message Modal -->
+  <div id="secretModal" class="secret-modal" onclick="closeSecretModal(event)">
+    <div class="secret-modal-card" onclick="event.stopPropagation()">
+      <button class="secret-close" onclick="closeSecretModalForce()"><i data-lucide="x"></i></button>
+      
+      <!-- Secret Loading State -->
+      <div id="secretLoading" class="secret-loading">
+        <div class="floral-spinner">
+          <i data-lucide="sparkles"></i>
+        </div>
+        <h3>Loading secret message...</h3>
+      </div>
+
+      <!-- Secret Message Content -->
+      <div id="secretContent" class="secret-content hidden">
+        <div class="secret-header">
+          <i data-lucide="heart" class="secret-heart-icon"></i>
+          <h2>A Special Note From Aryan</h2>
+        </div>
+        <div class="secret-body">
+          <p>
+            I am so happy knowing I was able to do something for you. Ummi, you are one of the most genuine and kind-hearted people I’ve ever met. I know it takes a lot to trust someone your daughter is dating, but it is so heartwarming the way you have accepted me. Even when we met at Baskin-Robbins and at the end you told me I could call you Ummi—all these moments hold a special place in my heart, and I will forever be grateful for you.<br><br>
+            Happy Birthday Ummi!<br><br>
+            <strong>Love, Aryan</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- External Script -->
+  <script src="script.js"></script>
+</body>
+</html>
